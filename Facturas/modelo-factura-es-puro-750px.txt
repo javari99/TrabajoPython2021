@@ -1,0 +1,51 @@
+
+FACTURA
+LOGO
+Rojo Polo Paella Inc.
+Carretera Muelle 38
+37531 Ávila, Ávila
+FACTURAR A
+ENVIAR A
+N° DE FACTURA
+ES-001
+Leda Villareal
+Leda Villareal
+FECHA
+29/01/2019
+Virgen Blanca 63
+Cercas Bajas 68
+N° DE PEDIDO
+08759 Burgos, Burgos
+47300 Cádiz, Cádiz
+1730/2019
+FECHA VENCIMIENTO
+29/01/2019
+CANT.
+DESCRIPCIÓN
+PRECIO UNITARIO
+IMPORTE
+1
+Talla pequeña traje de luces en rojo
+100.00
+100.00
+2
+Mui grande churrolito
+25.00
+50.00
+3
+Equipaje de Fútbol
+5.00
+15.00
+Subtotal
+165.00
+IVA 21.0%
+34.65
+TOTAL
+199.65 €
+Lace Racia
+CONDICIONES Y FORMA DE PAGO
+El pago se realizará en un plazo de 15 días
+Banco Santander
+Gracias
+IBAN: ES12 3456 7891
+SWIFT/BIC: ABCDESM1XXX

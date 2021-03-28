@@ -1,0 +1,77 @@
+
+CUIT Juridica de Prueba
+A
+FACTURA
+coe. #1
+Punte de Venta:
+00010
+Comp. Nro: 00000094
+Ranée Social: Juridica de Prusts
+Fecha de Emiside: 13/10/2020
+Domicilio Comercial: a De Diciembre Diciembre
+153
+cum
+Pasi P.B. Optei 9°
+Ingreses Brutes:
+1
+Condición frante * IVA: IVA Responsable inscripte
+Fecha de inicle de Actividades: 01/01/1900
+cum
+y Nombre " Raste Social PRUESA EMPLEADO
+Condicite . NA
+AVA Responsable
+Comercial Awt Del Mayo 167 Federal, de
+Conticite de venta
+Contado
+Raferencia
+Codge
+- -
+Pracial - -
+-
+- UNA
+1234
+-
+1,00 -
+0,00
+10000.00
+21%
+12100,00
+-
+Desorpote
+Detale
+s
+Reporte
+Par. - . -
+9.90
+Par. - - NVA
+0.00
+ingresse
+9,90
+importe Nete
+10000,00
+internes
+0,90
+0,00
+9,00
+2100,00
+importe Oves Tributow uno
+0,00
+IVA 10.5%
+0,00
+0,00
+0,00
+0,00
+importe Otros
+0,00
+importe Total:use
+12100,00
+. - - - * monels - - agat Pasce - -
+- . $
+786500,00
+"Leyenda ,
+ALPOUP
+Pag. 1/1
+CAE N°: 70417054367476
+Fecha de Vto. de CAE: 23/10/2020
+Comprosente Autorizado
+- - - - - - - - - - - - -

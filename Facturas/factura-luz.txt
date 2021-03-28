@@ -1,0 +1,84 @@
+
+FACTURA DE ELECTRICIDAD
+IBERDROLA
+Hoja número 1 /1
+Remite. IBERDROLA COMERCIALIZACIÓN Ùl, TIMO RECURSO,S.A.U. Apdo. 138 Azuqueca de Henares 19200
+1
+DATOS DEL CONTRATO
+Guadalajara
+DY 751 MS037339237001
+S114 009246 009460 20091230
+47013 VALLADOLID
+Potencia 3,45 kW
+AENOR
+Tarifa ATR 2.0 A
+Precios B.O.E. del 29/06/2009
+Número de póliza del contrato de acceso 0266006796
+ER
+impresa
+Forma de pago
+Regisirada
+UNE ENTSO 9001
+ER -1684/2005
+"
+E Net
+Fecha de cargo: 07/01/2010
+2
+FACTURACION
+EUROS
+Potencia contratada
+3,45 kW X 29 días x 5,5075 cent.€/kW día
+5,51
+Energía consumida
+210 kWh x 11,473 cent.€/kWh
+24,09
+Impuesto sobre electricidad
+4,864% s/29,6 x 1,05113
+1,51
+Alquiler equipos de medida
+29 días x 1,874 cent.€/día
+0,54
+IVA
+16% s/31,65
+5,06
+IMPORTE
+36,71
+3
+CONSUMO
+Historial del Consumo
+1750
+N° contador
+0062218963
+Lectura actual (real)
+29/12/2009
+007539,0
+1500
+- Lectura anterior
+30/11/2009
+- 007329,0
+1250
+Consumo del periodo (real)
+30/11/2009 a 29/12/2009
+210 kWh
+1000
+750
+1 kilovatio-hora (kWh) equivale al consumo de una lámpara de 100 vatios
+500
+funcionando durante 10 horas.
+250
+a
+kWh
+Dc. En. Fb. Mr. Ab. Jn. Jn. Ag. Ag. St. Oc. Nv. Dc.
+08 09
+Consumo medio mensual: 275 kWh
+Precio medio (sin IVA) Mes actual: 15,07 Cent. €/kWh
+4
+INFORMACIÓN DE UTILIDAD
+Se ha procedido a regularizar las lecturas facturadas de forma estimada
+En el cálculo del término de potencia y de alquileres se han considerado los días del período facturado.
+Atención al Cliente 24 horas: 901 202020
+ALICANTE
+www.berdrola.com
+Mod. B00001
+2008-2009
+VUELTA AL MUNDO A VELA

@@ -1,0 +1,43 @@
+
+Grup
+tt
+TRENC
+Cecassa
+Serveis per Empreses
+GRUP CECASSA ASSESSORS, S.L.
+PABLO IGLESIAS, 63 08302 MATARÓ
+16000109
+TEL. 93 741 25 60 FAX 93 757 83 71
+N.I.F. ES B60593498
+GERSOFT HISPANIA S.L.
+cecassa@cecassa.com
+CL PABLO IGLESIAS 63 13
+08302 MATARO
+BARCELONA
+N.I.F: B61127122
+Data Factura
+Factura
+01/03/16
+16/457
+Article
+Concepte
+Unitats
+Preu Unitari
+Total
+Provisions
+0204
+QUOTA DEL MES LABORAL
+1,00
+20.00
+20.00
+Base Imposable
+%
+Quota I.V.A.
+Total Factura
+20.00
+21
+4,20
+24.20
+Honoraris
+Pagaments Delegats
+Provisions de Fons
