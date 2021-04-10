@@ -1,21 +1,21 @@
-12OCR (1): ['B60593498', 'B61127122']
-5ffe46bfc08b4: []
-IVALINEAS1 (1): []
-IVALINEAS2 (1): ['E-06227490', 'A-06141345']
-IVALINEAS3 (1): ['A-06141345']
-IVANORMAL2 (1): ['A06141345']
-IVANORMAL3 (1): ['B84866714', 'A06141345']
-codigoqr: []
-factura-luz: []
-modelo-factura-es-clasico-blanco-750px: []
-modelo-factura-es-puro-750px: []
-prueba 1_1: ['A-95758389', '12164189H']
-prueba 1_10: ['B47776067', '12164189H']
-prueba 1_11: ['B47776067', '12164189H']
-prueba 1_2: ['12164189H']
-prueba 1_3: ['12164189H', 'A28815017']
-prueba 1_4: ['B74349713', '12164189H']
-prueba 1_5: ['12164189H', 'A83052407']
-prueba 1_6: ['12164189H', 'A83052407']
-prueba 1_9: ['B47776067', '12164189H']
-ticket: []
+12OCR (1): {'NIF': ['B60593498', 'B61127122'], 'Precio Total': 24.2}
+5ffe46bfc08b4: {'NIF': [], 'Precio Total': 786500.0}
+IVALINEAS1 (1): {'NIF': [], 'Precio Total': 1164.02}
+IVALINEAS2 (1): {'NIF': ['E-06227490', 'A-06141345'], 'Precio Total': 468.0}
+IVALINEAS3 (1): {'NIF': ['A-06141345'], 'Precio Total': 201655.04}
+IVANORMAL2 (1): {'NIF': ['A06141345'], 'Precio Total': 156.29}
+IVANORMAL3 (1): {'NIF': ['B84866714', 'A06141345'], 'Precio Total': 21646.9}
+codigoqr: {'NIF': [], 'Precio Total': 850.0}
+factura-luz: {'NIF': [], 'Precio Total': 36.71}
+modelo-factura-es-clasico-blanco-750px: {'NIF': [], 'Precio Total': 199.65}
+modelo-factura-es-puro-750px: {'NIF': [], 'Precio Total': 199.65}
+prueba 1_1: {'NIF': ['A-95758389', '12164189H'], 'Precio Total': 86.32}
+prueba 1_10: {'NIF': ['B47776067', '12164189H'], 'Precio Total': 4104.53}
+prueba 1_11: {'NIF': ['B47776067', '12164189H'], 'Precio Total': 880.26}
+prueba 1_2: {'NIF': ['12164189H'], 'Precio Total': 66.67}
+prueba 1_3: {'NIF': ['12164189H', 'A28815017'], 'Precio Total': 11.97}
+prueba 1_4: {'NIF': ['B74349713', '12164189H'], 'Precio Total': 160.27}
+prueba 1_5: {'NIF': ['12164189H', 'A83052407'], 'Precio Total': 10.7}
+prueba 1_6: {'NIF': ['12164189H', 'A83052407'], 'Precio Total': 13.35}
+prueba 1_9: {'NIF': ['B47776067', '12164189H'], 'Precio Total': 3607.97}
+ticket: {'NIF': [], 'Precio Total': 722.37}
