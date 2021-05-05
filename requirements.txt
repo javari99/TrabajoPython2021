@@ -25,6 +25,7 @@ defusedxml==0.6.0
 diff-match-patch==20200713
 docutils==0.16
 entrypoints==0.3
+et-xmlfile==1.0.1
 flake8==3.8.4
 helpdev==0.7.1
 idna==2.10
@@ -60,6 +61,7 @@ nest-asyncio==1.4.3
 notebook==6.2.0
 numpy==1.19.5
 numpydoc==1.1.0
+openpyxl==3.0.7
 packaging==20.8
 pandas==1.2.1
 pandocfilters==1.4.3
@@ -135,5 +137,6 @@ wcwidth==0.2.5
 webencodings==0.5.1
 widgetsnbextension==3.5.1
 wrapt==1.12.1
+XlsxWriter==1.4.0
 yapf==0.30.0
 zipp==3.4.0
