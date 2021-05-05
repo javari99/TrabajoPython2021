@@ -1,6 +1,7 @@
 #Funciones de Arin
 from babel.numbers import parse_decimal
 import regex as re
+from regex.regex import match
 
 
 def twoSum(arr : list, target : float) -> list:
@@ -67,7 +68,8 @@ def findNIF(instring):
 
 def getAllPricesAndTotal(data : str) -> tuple:
     #Recogemos el precio total de la factura
-    matches = re.findall('(?:\d+?\.?)(?:\d*\,\d{2})', data)
+    matches = re.findall('(?:\d+?\.?)(?:\d*\,\d{2})0?(?:\s|€)', data)
+    matches = [element.replace("€", "") for element in matches] #Eliminamos el símbolo de €
     #convertimos a numeros y luego filtramos el maximo
     matches = [float(parse_decimal(d, locale="es_ES")) for d in matches]
     arr = []
@@ -77,7 +79,8 @@ def getAllPricesAndTotal(data : str) -> tuple:
         arr = arr + matches
 
     #Si no ha detectado ningun precio probablemente sea que el numero esta en ingles
-    matches = re.findall('(?:\d+?\,?)(?:\d*\.\d{2})', data)
+    matches = re.findall('(?:\d+?\,?)(?:\d*\.\d{2})0?(?:\s|€)', data)
+    matches = [element.replace("€", "") for element in matches] #Eliminamos el símbolo de €
     #print(f"DEBUG: <{filename}> : \n\r{matches}\n\r")
     matches = [float(parse_decimal(d, locale="en_US")) for d in matches]
         # Filtramos para quitar los 0 de la lista
@@ -89,46 +92,8 @@ def getAllPricesAndTotal(data : str) -> tuple:
     # Devolvemos la lista de todos los precios encontrados y el del máximo
     return (arr, maximum)
 
+def getAllpossibleIVAConfigs(IVAOPTIONS : list, allPrices : list) -> list:
+    pass
+
 if __name__ == "__main__":
-    import json
-    import os
-    import regex as re
-    from babel.numbers import parse_decimal
-    
-    cwd = os.getcwd()
-    print(cwd)
-
-    with open("./TrabajoPython2021/dict_wB.json", 'r') as fp:
-        data = json.load(fp)
-
-
-    # Lista de nombres de archivos
-    # print(data.keys())
-    keys = data.keys()
-    arr = []
-
-    # para leer el contenido de uno de los archivos a secas usar data[nombrearchivo]
-    for filename in data.keys():
-        dic = {}
-        #Recogemos los NIF de los archivos
-        matches = findNIF(data[filename])
-        dic["NIF"] = matches
-
-
-        (matches, maximum) = getAllPricesAndTotal(data[filename])
-        dic["ListaPrecios"] = matches
-        dic["Precio Total"] = maximum
-
-        # Vamos a intentar sacar el PRECIO BASE a partir del PRECIO TOTAL
-        sumtwo = twoSumGetMostLikely(matches, maximum)
-        print(f"{filename} : {sumtwo}")
-
-        arr.append(dic)
-
-    newdic = dict(zip(keys,arr))
-    print("\n\n\n\nDiccionario intermedio:")
-    print(newdic)
-
-    with open('NIF.txt', 'w') as f:
-        for filename in newdic.keys():
-            f.write(f'{filename}: {newdic[filename]}\n')
+    pass
