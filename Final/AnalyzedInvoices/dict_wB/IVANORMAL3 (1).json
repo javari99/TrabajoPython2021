@@ -1,0 +1,26 @@
+{
+    "FILENAME": "IVANORMAL3 (1)",
+    "REGISTRO": "1db4ce38-e25f-457e-acf4-4421d10bf608",
+    "FechaRegistro": "08/05/2021",
+    "NIF": [
+        "B84866714",
+        "A06141345"
+    ],
+    "Email": [],
+    "Telefono": [],
+    "FechasExpedici\u00f3n": [
+        "02/01/2017",
+        "30/01/2017"
+    ],
+    "ListaPrecios": [
+        17890.0,
+        17890.0,
+        3756.9,
+        17890.0,
+        21646.9
+    ],
+    "PrecioTotal": 21646.9,
+    "BASE": 17890.0,
+    "IVACANT": 3756.9,
+    "%IVA": 21.0
+}

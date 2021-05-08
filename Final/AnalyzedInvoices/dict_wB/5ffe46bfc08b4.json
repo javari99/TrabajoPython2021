@@ -1,0 +1,30 @@
+{
+    "FILENAME": "5ffe46bfc08b4",
+    "REGISTRO": "740890fc-509a-41e8-bd90-fa6d2e3c0b29",
+    "FechaRegistro": "08/05/2021",
+    "NIF": [],
+    "Email": [],
+    "Telefono": [],
+    "FechasExpedici\u00f3n": [
+        "13/10/2020",
+        "23/10/2020",
+        "01/01/1900"
+    ],
+    "ListaPrecios": [
+        1.0,
+        12100.0,
+        9.9,
+        10000.0,
+        0.9,
+        9.0,
+        2100.0,
+        12100.0,
+        786500.0,
+        10000.0,
+        9.9
+    ],
+    "PrecioTotal": 786500.0,
+    "BASE": [],
+    "IVACANT": [],
+    "%IVA": []
+}

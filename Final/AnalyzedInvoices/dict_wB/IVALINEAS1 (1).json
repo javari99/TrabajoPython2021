@@ -1,0 +1,27 @@
+{
+    "FILENAME": "IVALINEAS1 (1)",
+    "REGISTRO": "8a40b716-b54b-4d6f-b565-560a91da8b4f",
+    "FechaRegistro": "08/05/2021",
+    "NIF": [],
+    "Email": [
+        "administracion@ofiteca.com"
+    ],
+    "Telefono": [],
+    "FechasExpedici\u00f3n": [
+        "10/01/2017"
+    ],
+    "ListaPrecios": [
+        1.0,
+        962.0,
+        962.0,
+        962.0,
+        962.0,
+        202.02,
+        1164.02,
+        1164.02
+    ],
+    "PrecioTotal": 1164.02,
+    "BASE": 962.0,
+    "IVACANT": 202.02,
+    "%IVA": 21.0
+}

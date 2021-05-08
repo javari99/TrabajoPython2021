@@ -191,7 +191,7 @@ def getAllInvoiceNumbers(inString : str):
     matches = matches + re.findall('(?<=FACTURA : ).*\d{4}', \
                 inString)
     #prueba 
-    matches = re.findall('(?<=\d{8}[A-Z]\n).*\d{3}\/\n\d{1} \d{3}', \
+    matches7 = re.findall('(?<=\d{8}[A-Z]\n).*\d{3}\/\n\d{1} \d{3}', \
                 inString)
     
     matches = matches + [line.replace("\n","") for line in matches7]

@@ -1,0 +1,31 @@
+{
+    "FILENAME": "12OCR (1)",
+    "REGISTRO": "5adbdc34-5c4c-4764-beb7-f6da9417e739",
+    "FechaRegistro": "08/05/2021",
+    "NIF": [
+        "B60593498",
+        "B61127122"
+    ],
+    "Email": [
+        "cecassa@cecassa.com"
+    ],
+    "Telefono": [
+        "93 741 25 60",
+        "93 757 83 71"
+    ],
+    "FechasExpedici\u00f3n": [
+        "01/03/16"
+    ],
+    "ListaPrecios": [
+        1.0,
+        4.2,
+        20.0,
+        20.0,
+        20.0,
+        24.2
+    ],
+    "PrecioTotal": 24.2,
+    "BASE": 20.0,
+    "IVACANT": 4.2,
+    "%IVA": 21.0
+}

@@ -1,0 +1,41 @@
+{
+    "FILENAME": "ticket",
+    "REGISTRO": "cbb2786c-9fd4-43a4-b184-4cdbf0a62fce",
+    "FechaRegistro": "08/05/2021",
+    "NIF": [],
+    "Email": [
+        "aldo.solanas@holded.com"
+    ],
+    "Telefono": [],
+    "FechasExpedici\u00f3n": [],
+    "ListaPrecios": [
+        90.0,
+        90.0,
+        108.9,
+        70.0,
+        70.0,
+        84.7,
+        25.0,
+        25.0,
+        30.25,
+        356.0,
+        356.0,
+        430.76,
+        22.0,
+        22.0,
+        26.62,
+        22.0,
+        22.0,
+        26.62,
+        12.0,
+        12.0,
+        14.52,
+        597.0,
+        125.37,
+        722.37
+    ],
+    "PrecioTotal": 722.37,
+    "BASE": 597.0,
+    "IVACANT": 125.37,
+    "%IVA": 21.0
+}

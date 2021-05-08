@@ -1,0 +1,31 @@
+{
+    "FILENAME": "codigoqr",
+    "REGISTRO": "64f7050c-5dc6-4806-a95f-b493e818e2a3",
+    "FechaRegistro": "08/05/2021",
+    "NIF": [],
+    "Email": [],
+    "Telefono": [],
+    "FechasExpedici\u00f3n": [
+        "13/03/2018",
+        "13/02/2018"
+    ],
+    "ListaPrecios": [
+        1.0,
+        450.0,
+        19.0,
+        450.0,
+        1.0,
+        400.0,
+        19.0,
+        400.0,
+        2.0,
+        714.0,
+        714.0,
+        136.0,
+        850.0
+    ],
+    "PrecioTotal": 850.0,
+    "BASE": 714.0,
+    "IVACANT": 136.0,
+    "%IVA": 19.05
+}

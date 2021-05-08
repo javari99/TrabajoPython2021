@@ -1,0 +1,26 @@
+{
+    "FILENAME": "modelo-factura-es-clasico-blanco-750px",
+    "REGISTRO": "ecf4dcf8-4b44-478e-8ba5-daaf00031584",
+    "FechaRegistro": "08/05/2021",
+    "NIF": [],
+    "Email": [],
+    "Telefono": [],
+    "FechasExpedici\u00f3n": [
+        "29/01/2019"
+    ],
+    "ListaPrecios": [
+        100.0,
+        100.0,
+        25.0,
+        50.0,
+        5.0,
+        15.0,
+        165.0,
+        34.65,
+        199.65
+    ],
+    "PrecioTotal": 199.65,
+    "BASE": 165.0,
+    "IVACANT": 34.65,
+    "%IVA": 21.0
+}

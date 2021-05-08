@@ -1,0 +1,26 @@
+{
+    "FILENAME": "modelo-factura-es-puro-750px",
+    "REGISTRO": "0bb20e7d-4740-4eba-a51c-fa82945a3c63",
+    "FechaRegistro": "08/05/2021",
+    "NIF": [],
+    "Email": [],
+    "Telefono": [],
+    "FechasExpedici\u00f3n": [
+        "29/01/2019"
+    ],
+    "ListaPrecios": [
+        100.0,
+        100.0,
+        25.0,
+        50.0,
+        5.0,
+        15.0,
+        165.0,
+        34.65,
+        199.65
+    ],
+    "PrecioTotal": 199.65,
+    "BASE": 165.0,
+    "IVACANT": 34.65,
+    "%IVA": 21.0
+}
