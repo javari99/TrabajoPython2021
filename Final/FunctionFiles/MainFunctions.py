@@ -7,13 +7,14 @@ from FieldScrappers import *
 import datetime
 import uuid
 import os
+import io
 
 def analyzeJSON(path: str):
     # name of the file, used later for cache
     jsonName = os.path.split(path)[1]
     ogFilename = os.path.splitext(jsonName)[0] # To remove the extension
     try:
-        with open(path, mode='r') as fp:
+        with io.open(path, mode='r', encoding="UTF-8") as fp:
             data = json.load(fp)
     except:
         #IOError or file not found
@@ -95,8 +96,8 @@ def cacheResults(input : dict, ogFilename : str):
     newDir = os.path.join(analizedDir, ogFilename)
     os.makedirs(newDir, exist_ok=True)
     for filename in input.keys():
-        with open(newDir + "/" + filename +".json", "w") as fp:
-            json.dump(input[filename], fp, indent=4)
+        with io.open(newDir + "/" + filename +".json", mode="w", encoding="UTF-16") as fp:
+            json.dump(input[filename], fp, indent=4, ensure_ascii=False)
 
 
 
