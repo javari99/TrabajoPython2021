@@ -219,6 +219,49 @@ def getPhoneNumbers(inString : str) -> list:
     return matches
 
 def getEmails(inString : str) -> list:
-        matches = re.findall('(?:\w+\.)?\w+@\w+.\w+', \
+    matches = re.findall('(?:\w+\.)?\w+@\w+.\w+', \
                 inString)
-        return matches
+    return matches
+
+def getAllDates(inString : str) -> list:
+    
+    intarr = []
+    matches = re.findall('\d{1,2}[\/|-]\d{1,2}[\/|-]\d{1,4}', \
+                inString)
+    # F1
+    if matches:
+        for i in range(len(matches)):
+            # Transform dates
+            matches[i] = extraerFecha_0(matches[i])
+        # Remove error dates
+        matches = list(filter(lambda a: a!="error", matches))
+        intarr += matches
+    # F2
+    matches = re.findall('([0-9]{1,2}-(ene|feb|mar|abr|may|jun|jul|ago|set|oct|nov|dic)-(20)?[0-9]{2,4})', \
+                inString)
+    if matches:
+        for i in range(len(matches)):
+            matches[i] = matches[i][0] #Linea para quedarnos con el primer elemento de la tupla que es la que nos intersa
+            #Antes de escribir le cambiamos el formato para que quede con un formato con el que podamos meter a excel
+            matches[i] = extraerFecha_1(matches[i])
+        intarr += matches
+    # F3
+    matches = re.findall('([0-9]{1,2} (de) (enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre) (de) [0-9]{2,4})', \
+                inString)
+    if matches:
+        for i in range(len(matches)):
+            matches[i] = matches[i][0]#Linea para quedarnos con el primer elemento de la tupla que es la que nos intersa
+            #Antes de escribir le cambiamos el formato para que quede con un formato con el que podamos meter a excel
+            matches[i] = extraerFecha_2(matches[i]) 
+        intarr += matches 
+    # F4
+    matches = re.findall('([0-9]{1,2} (Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre) [0-9]{2,4})', \
+                inString)
+    if matches:
+        for i in range(len(matches)):
+            matches[i] = matches[i][0]#laLinea para quedarnos con el primer elemento de la tupla que es  que nos intersa
+            #Antes de escribir le cambiamos el formato para que quede con un formato con el que podamos meter a excel
+            matches[i] = extraerFecha_3(matches[i]) 
+        intarr += matches
+    # Finally we convert to a set to remove duplicates and convert back to a list
+    return list(set(intarr))
