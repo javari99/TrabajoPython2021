@@ -3,7 +3,7 @@ import json
 from typing import cast
 import regex as re
 import numpy as np
-from FieldScrappers import *
+from .FieldScrappers import *
 import datetime
 import uuid
 import os
@@ -99,15 +99,3 @@ def cacheResults(input : dict, ogFilename : str):
         with io.open(newDir + "/" + filename +".json", mode="w", encoding="UTF-16") as fp:
             json.dump(input[filename], fp, indent=4, ensure_ascii=False)
 
-
-
-if __name__ == "__main__":
-    """
-    _thisFileDirectory = os.path.dirname(__file__)
-    rootDir = os.path.split(_thisFileDirectory)[0]
-    analizedDir = os.path.join(rootDir, "AnalyzedInvoices")
-    ogFilename = os.path.split("./TrabajoPython2021/dict_wB.json")[1]
-    ogFilename = os.path.splitext(ogFilename)[0]
-    print(os.path.join(analizedDir, ogFilename))
-    """
-    provisionalDic = analyzeJSON("./TrabajoPython2021/dict_wB.json")

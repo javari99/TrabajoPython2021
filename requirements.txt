@@ -81,6 +81,7 @@ pycparser==2.20
 pydocstyle==5.1.1
 pyflakes==2.2.0
 Pygments==2.7.4
+pygubu==0.10.9
 pylint==2.6.0
 pyls-black==0.4.6
 pyls-spyder==0.3.0
