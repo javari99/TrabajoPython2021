@@ -8,6 +8,7 @@ import datetime
 import uuid
 import os
 import io
+import xlsxwriter
 
 def analyzeJSON(path: str):
     # name of the file, used later for cache
@@ -81,10 +82,10 @@ def analyzeJSON(path: str):
         ####################################################
         # Finally append this to the global array of dictionaries
         dicArr.append(dic)
-        finalDic = dict(zip(data.keys(), dicArr))
-        # We cache the obtained results, relative to the directory of THIS file
-        cacheResults(finalDic, ogFilename)
-
+    finalDic = dict(zip(data.keys(), dicArr))
+     # We cache the obtained results, relative to the directory of THIS file
+    cacheResults(finalDic, ogFilename)
+    # Unused output. should never be used debug only
     return finalDic
 
 def cacheResults(input : dict, ogFilename : str):
@@ -98,4 +99,34 @@ def cacheResults(input : dict, ogFilename : str):
     for filename in input.keys():
         with io.open(newDir + "/" + filename +".json", mode="w", encoding="UTF-16") as fp:
             json.dump(input[filename], fp, indent=4, ensure_ascii=False)
+
+    #exportToExcel(input, analizedDir+"/"+ogFilename+".xlsx")
+
+def exportToExcel(input : dict, outFilePath : str):
+    workbook = xlsxwriter.Workbook(outFilePath)
+    worksheet = workbook.add_worksheet()
+    FIELDS = {"FILENAME":0, "REGISTRO":1, "FechaRegistro":2, "NIF":3, 
+    "Email":4, "Telefono":5, "FechasExpedición":6, "ListaPrecios":11,
+    "PrecioTotal":7, "BASE":8, "IVACANT":9, "%IVA":10}
+    row = 0
+    for key, value in FIELDS.items():
+        worksheet.write(row, value, key)
+    row += 1
+    for filename, data in input.items():
+        for key in data.keys():
+            worksheet.write(row, FIELDS[key], str(data[key]))
+        row +=1
+    workbook.close()
+
+
+
+
+
+     
+     
+     
+     
+     
+
+
 

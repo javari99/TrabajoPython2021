@@ -1,27 +1,174 @@
-from tkinter import *
+from tkinter.constants import END
 from FunctionFiles.MainFunctions import *
+import os
 
-class TextMinerGUI(Frame):
-    def __init__(self, master, *args, **kwargs):
-        Frame.__init__(self, master, *args, **kwargs)
-        self.parent = master
-        self.setupWidgets()
+import tkinter as tk
+import tkinter.filedialog
+import tkinter.ttk as ttk
 
-    def setupWidgets(self):
-        # Top Menu bar
-        self.menubar = Menu(self.master)
-        filemenu = Menu(self.menubar, tearoff=0)
-        filemenu.add_command(label="Ups", command=self.doNothing)
-        self.menubar.add_cascade(label="File", menu=filemenu)
-        self.parent.config(menu=self.menubar)
 
-    def doNothing(self):
+class TextMiningUI:
+    def __init__(self, master=None):
+        # build ui
+        self.dataDic = {}
+        self.root = master
+        self.MainFrame = ttk.Frame(master)
+        self.frame1 = tk.Frame(self.MainFrame)
+        self.tb_fileDirectory = tk.Entry(self.frame1)
+        self.tb_fileDirectory.configure(exportselection='true', takefocus=False)
+        _text_ = '''Choose file...'''
+        self.tb_fileDirectory.delete('0', 'end')
+        self.tb_fileDirectory.insert('0', _text_)
+        self.tb_fileDirectory.grid(column='0', row='4')
+        self.tb_fileDirectory.columnconfigure('0', pad='10')
+        self.tb_fileDirectory.bind('<1>', self.callback, add='')
+
+        self.l_Analysis = ttk.Label(self.frame1)
+        self.l_Analysis.configure(font='{File analysis} 12 {bold underline}', text='File analysis')
+        self.l_Analysis.grid(column='0', row='0', rowspan='3', sticky='ne')
+        self.l_Analysis.rowconfigure('0', minsize='100', pad='0', weight='0')
+        self.l_Analysis.columnconfigure('0', pad='10')
+
+        self.label3 = ttk.Label(self.frame1)
+        self.label3.configure(text='Choose file to scrap')
+        self.label3.grid(column='0', row='3')
+        self.label3.columnconfigure('0', pad='10')
+
+        self.btn_analyze = ttk.Button(self.frame1, command=self.analyzeFile)
+        self.btn_analyze.configure(compound='left', text='Analyze')
+        self.btn_analyze.grid(column='0', columnspan='2', row='5')
+        self.btn_analyze.rowconfigure('5', minsize='0', pad='10')
+        self.btn_analyze.columnconfigure('0', pad='10')
+
+        self.btn_loadFileBrowse = ttk.Button(self.frame1, command=self.loadBrowseButton)
+        self.btn_loadFileBrowse.configure(text='Browse')
+        self.btn_loadFileBrowse.grid(column='1', row='4')
+        self.frame1.configure(height='200', width='200')
+        self.frame1.grid(column='0', row='0')
+        self.frame1.rowconfigure('0', pad='10')
+        self.frame1.columnconfigure('0', pad='10')
+
+        self.frame2 = tk.Frame(self.MainFrame)
+
+        self.vScroll = ttk.Scrollbar(self.frame2)
+        self.vScroll.configure(orient='vertical')
+        self.vScroll.grid(column='1', row='1', rowspan='2', sticky='nse')
+        self.vScroll.rowconfigure('1', pad='0')
+        self.hScroll = ttk.Scrollbar(self.frame2)
+        self.hScroll.configure(orient='horizontal')
+        self.hScroll.grid(column='0', row='2', sticky='ew')
+
+        self.treeview1 = ttk.Treeview(self.frame2, yscrollcommand=self.vScroll.set, xscrollcommand=self.hScroll.set)
+        self.treeview1.grid(column='0', row='1', rowspan='1', sticky='nsew')
+        self.treeview1.rowconfigure('1', pad='0')
+        self.treeview1.columnconfigure('0', minsize='900', pad='0')
+
+        self.label4 = ttk.Label(self.frame2)
+        self.label4.configure(cursor='arrow', font='{All analyzed} 12 {bold underline}', text='All analyzed')
+        self.label4.grid(column='0', row='0', sticky='n')
+        self.label4.columnconfigure('0', minsize='900', pad='0')
+
+        self.frame2.configure(height='200', width='200')
+        self.frame2.grid(column='2', columnspan='1', row='0', rowspan='3', sticky='nsew')
+        self.frame2.rowconfigure('0', pad='10')
+
+        self.frame4 = tk.Frame(self.MainFrame)
+
+        self.label5 = ttk.Label(self.frame4)
+        self.label5.configure(cursor='arrow', takefocus=False, text='Export Selected to excell')
+        self.label5.grid(column='0', row='0')
+        self.label5.columnconfigure('0', pad='10')
+
+        self.btn_saveFileBrowse = ttk.Button(self.frame4, command=self.saveBrowseButton)
+        self.btn_saveFileBrowse.configure(text='Browse')
+        self.btn_saveFileBrowse.grid(column='1', row='1')
+        self.btn_saveFileBrowse.columnconfigure('1', pad='10')
+
+        self.tb_saveDir = ttk.Entry(self.frame4)
+        _text_ = '''choose target...'''
+        self.tb_saveDir.delete('0', 'end')
+        self.tb_saveDir.insert('0', _text_)
+        self.tb_saveDir.grid(column='0', row='1')
+        self.tb_saveDir.columnconfigure('0', pad='10')
+
+        self.btn_save = ttk.Button(self.frame4, command=self.exportAsExcell)
+        self.btn_save.configure(text='Export')
+        self.btn_save.grid(column='0', columnspan='2', row='2')
+        self.btn_save.rowconfigure('2', pad='10')
+        self.btn_save.columnconfigure('0', pad='10')
+        self.frame4.configure(height='200', width='200')
+        self.frame4.grid(column='0', columnspan='1', row='2', rowspan='1')
+        self.frame4.rowconfigure('0', pad='10')
+
+        self.separator1 = ttk.Separator(self.MainFrame)
+        self.separator1.configure(orient='vertical')
+        self.separator1.grid(column='1', columnspan='1', row='0', rowspan='2', sticky='ns')
+
+        self.separator2 = ttk.Separator(self.MainFrame)
+        self.separator2.configure(orient='horizontal')
+        self.separator2.grid(column='0', row='1', sticky='ew')
+        self.MainFrame.configure(height='720', width='1280')
+        self.MainFrame.pack(side='top')
+
+        # Main widget
+        self.mainwindow = self.MainFrame
+
+    def callback(self, event=None):
+        pass
+
+    def run(self):
+        self.mainwindow.mainloop()
+
+    def updateTreeView(self):
+        self.treeview1.delete(*self.treeview1.get_children())
+
+        _thisFileDirectory = os.path.dirname(__file__)
+        rootDir = _thisFileDirectory
+        analizedDir = os.path.join(rootDir, "AnalyzedInvoices")
+        os.makedirs(analizedDir, exist_ok=True)
+        directories = os.listdir(analizedDir)
+        for directory in directories:
+            item = self.treeview1.insert("", tk.END, text=directory)
+            print(directory)
+            for file in os.listdir(os.path.join(analizedDir, directory)):
+                self.treeview1.insert(item, tk.END, text=file)
+                print(f"\t{file}")
+    
+    def analyzeFile(self):
+        try:
+            analyzeJSON(self.tb_fileDirectory.get())
+            self.updateTreeView()
+        except:
+            print("Error file not found")
+
+    def loadBrowseButton(self):
+        filename = tkinter.filedialog.askopenfilename()
+        self.root.update()
+        self.tb_fileDirectory.delete(0,END)
+        self.tb_fileDirectory.insert(0,filename)
+
+    def saveBrowseButton(self):
+        filename = tkinter.filedialog.asksaveasfilename()
+        self.root.update()
+        self.tb_saveDir.delete(0,END)
+        self.tb_saveDir.insert(0,filename)
+
+    def exportAsExcell(self):
         pass
 
 
-TextMiner = Tk()
-TextMiner.title("TextMiner")
-TextMiner.geometry("620x480")
-TextMiner.resizable(False, False)
-root = TextMinerGUI(TextMiner).grid()
-TextMiner.mainloop()
+if __name__ == '__main__':
+    """
+    import tkinter as tk
+    root = tk.Tk()
+    root.title("TextMiner")
+    root.update()
+    app = TextMiningUI(root)
+    app.updateTreeView()
+    app.run()
+    """
+    analyzeJSON("./TrabajoPython2021/dict_wB.json")
+
+
+
+

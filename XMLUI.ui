@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.1">
+  <object class="ttk.Frame" id="MainFrame">
+    <property name="height">720</property>
+    <property name="width">1280</property>
+    <layout manager="pack">
+      <property name="propagate">True</property>
+      <property name="side">top</property>
+    </layout>
+    <child>
+      <object class="tk.Frame" id="frame1">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property id="0" name="pad" type="col">10</property>
+          <property id="0" name="pad" type="row">10</property>
+        </layout>
+        <child>
+          <object class="tk.Entry" id="tb_fileDirectory">
+            <property name="exportselection">true</property>
+            <property name="takefocus">false</property>
+            <property name="text" translatable="yes">Choose file...</property>
+            <bind add="" handler="callback" sequence="&lt;1&gt;" />
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">4</property>
+              <property id="0" name="pad" type="col">10</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Label" id="l_Analysis">
+            <property name="font">{File analysis} 12 {bold underline}</property>
+            <property name="text" translatable="yes">File analysis</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="rowspan">3</property>
+              <property name="sticky">ne</property>
+              <property id="0" name="pad" type="col">10</property>
+              <property id="0" name="minsize" type="row">100</property>
+              <property id="0" name="pad" type="row">0</property>
+              <property id="0" name="weight" type="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Label" id="label3">
+            <property name="text" translatable="yes">Choose file to scrap</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">3</property>
+              <property id="0" name="pad" type="col">10</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="btn_analyze">
+            <property name="compound">left</property>
+            <property name="text" translatable="yes">Analyze</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="columnspan">2</property>
+              <property name="propagate">True</property>
+              <property name="row">5</property>
+              <property id="0" name="pad" type="col">10</property>
+              <property id="5" name="minsize" type="row">0</property>
+              <property id="5" name="pad" type="row">10</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="btn_loadFileBrowse">
+            <property name="text" translatable="yes">Browse</property>
+            <layout manager="grid">
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">4</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frame2">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="grid">
+          <property name="column">2</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">3</property>
+          <property name="sticky">nsew</property>
+          <property id="0" name="pad" type="row">10</property>
+        </layout>
+        <child>
+          <object class="ttk.Treeview" id="treeview1">
+            <property name="selectmode">extended</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+              <property name="rowspan">1</property>
+              <property name="sticky">nsew</property>
+              <property id="0" name="minsize" type="col">900</property>
+              <property id="0" name="pad" type="col">0</property>
+              <property id="1" name="pad" type="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Scrollbar" id="treeviewScroll">
+            <property name="orient">vertical</property>
+            <layout manager="grid">
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+              <property name="rowspan">2</property>
+              <property name="sticky">nse</property>
+              <property id="1" name="pad" type="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Label" id="label4">
+            <property name="cursor">arrow</property>
+            <property name="font">{All analyzed} 12 {bold underline}</property>
+            <property name="text" translatable="yes">All analyzed</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="sticky">n</property>
+              <property id="0" name="minsize" type="col">900</property>
+              <property id="0" name="pad" type="col">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frame4">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="rowspan">1</property>
+          <property id="0" name="pad" type="row">10</property>
+        </layout>
+        <child>
+          <object class="ttk.Label" id="label5">
+            <property name="cursor">arrow</property>
+            <property name="takefocus">false</property>
+            <property name="text" translatable="yes">Export Selected to excell</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property id="0" name="pad" type="col">10</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="btn_saveFileBrowse">
+            <property name="text" translatable="yes">Browse</property>
+            <layout manager="grid">
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+              <property id="1" name="pad" type="col">10</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Entry" id="tb_saveDir">
+            <property name="text" translatable="yes">choose target...</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+              <property id="0" name="pad" type="col">10</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="btn_save">
+            <property name="text" translatable="yes">Save</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="columnspan">2</property>
+              <property name="propagate">True</property>
+              <property name="row">2</property>
+              <property id="0" name="pad" type="col">10</property>
+              <property id="2" name="pad" type="row">10</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Separator" id="separator1">
+        <property name="orient">vertical</property>
+        <layout manager="grid">
+          <property name="column">1</property>
+          <property name="columnspan">1</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">2</property>
+          <property name="sticky">ns</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Separator" id="separator2">
+        <property name="orient">horizontal</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <property name="sticky">ew</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>
