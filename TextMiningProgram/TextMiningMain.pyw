@@ -1,6 +1,8 @@
 
 from os import path
 from tkinter.constants import END, PROJECTING
+
+from matplotlib.pyplot import tight_layout
 from FunctionFiles.MainFunctions import *
 import os
 import json
@@ -8,6 +10,12 @@ import json
 import tkinter as tk
 import tkinter.filedialog
 import tkinter.ttk as ttk
+
+import numpy as np
+import seaborn as sns
+import pandas as pd
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.figure import Figure
 
 
 class TextMiningUI:
@@ -110,6 +118,36 @@ class TextMiningUI:
         self.separator2 = ttk.Separator(self.MainFrame)
         self.separator2.configure(orient='horizontal')
         self.separator2.grid(column='0', row='1', sticky='ew')
+        """
+        self.frame3 = ttk.Frame(self.MainFrame)
+        self.canvas1 = FigureCanvasTkAgg(Figure(figsize=(6,5)),master=self.frame3)
+        self.canvas1.grid(column='1', columnspan='2', row='1', sticky='nsew')
+        self.btn_plot = ttk.Button(self.frame3, command=self.plotCostPerInvoice)
+        self.btn_plot.configure(text='Plot')
+        self.btn_plot.grid(column='0', columnspan='1', row='1')
+        self.label1 = ttk.Label(self.frame3)
+        self.label1.configure(font='{Plot cost per invoice} 12 {bold underline}', text='Plot cost per invoice')
+        self.label1.grid(column='0', columnspan='3', row='0')
+        self.frame3.configure(height='200', width='200')
+        self.frame3.grid(column='0', columnspan='3', row='3', sticky='nsew')
+        """
+
+        self.frame3 = ttk.Frame(self.MainFrame)
+        self.btn_plot = ttk.Button(self.frame3, command=self.plotCostPerInvoice)
+        self.btn_plot.configure(text='Plot')
+        self.btn_plot.grid(column='0', columnspan='1', row='1')
+        self.label1 = ttk.Label(self.frame3)
+        self.label1.configure(font='{Plot cost per date} 12 {bold underline}', text='Plot cost per date')
+        self.label1.grid(column='0', columnspan='1', row='0')
+        self.frame3.configure(height='200', width='200')
+        self.frame3.grid(column='0', columnspan='1', row='3', sticky='nsew')
+        self.frame6 = ttk.Frame(self.MainFrame)
+        self.canvas = FigureCanvasTkAgg(Figure(figsize=(6,5)), master=self.frame6)
+        self.canvas.draw()
+        self.canvas.get_tk_widget().pack(side=tk.RIGHT, fill=tk.BOTH, expand=1)
+        self.frame6.configure(height='200', width='200')
+        self.frame6.grid(column='1', columnspan='4', row='3', sticky='nsew')
+
         self.MainFrame.configure(height='720', width='1280')
         self.MainFrame.pack(side='top')
 
@@ -166,6 +204,22 @@ class TextMiningUI:
             if name in self.dataDic:
                 dic[name] = self.dataDic[name]
         exportToExcel(dic, self.tb_saveDir.get())
+
+    def plotCostPerInvoice(self):
+        dic = {}
+        for item in self.treeview1.selection():
+            name = self.treeview1.item(item)["text"]
+            if name in self.dataDic:
+                dic[name] = self.dataDic[name]["PrecioTotal"]
+        filenames = [el.replace(".json","") for el in dic.keys()]
+        values = list(dic.values())
+        dic = {"filenames": filenames, "Total":values}
+        df = pd.DataFrame.from_dict(dic)
+        figure = Figure(figsize=(6,5), tight_layout=True)
+        ax = figure.subplots()
+        sns.barplot(y="filenames", x="Total", data=df, ax=ax)
+        self.canvas.figure = figure
+        self.canvas.draw()
 
 if __name__ == '__main__':
 

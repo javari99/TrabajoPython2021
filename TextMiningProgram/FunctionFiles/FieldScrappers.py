@@ -117,13 +117,22 @@ def getAllpossibleIVAConfigs(IVAOPTIONS : list, allPrices : list, total: float) 
     #combinationsIterator es un generador de combinaciones de los precios. hora veremos si alguna combinación es o no factible
     combinationsIterator = itertools.combinations(allPrices, len(IVAOPTIONS))
     # numpy conversion cache
-    IVAOPTIONSNP = np.array(IVAOPTIONS)
+    IVAOPTIONSNP = np.array(IVAOPTIONS) + 1
     possibleIVAConfigs = []
     for combination in combinationsIterator:
         if np.dot(IVAOPTIONSNP, np.array(combination)) == total:
-            possibleIVAConfigs.append()
-    return possibleIVAConfigs
+            possibleIVAConfigs.append(combination)
 
+    # We add the functionality from the mostlikely directly here
+    max = -1
+    for i in possibleIVAConfigs:
+        for el in i:
+            max = el if el > max else max
+
+    # Devolvemos el que tenga el maximo
+    for i in possibleIVAConfigs:
+        if max in i:
+            return i
 
 
 def extraerFecha_0(fech):
@@ -265,3 +274,8 @@ def getAllDates(inString : str) -> list:
         intarr += matches
     # Finally we convert to a set to remove duplicates and convert back to a list
     return list(set(intarr))
+
+
+if __name__ == "__main__":
+    print("Debuggin.....")
+    getAllpossibleIVAConfigs([0, 0.1, 0.21], [1, 2, 3, 4], 16)
