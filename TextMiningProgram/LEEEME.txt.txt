@@ -1,0 +1,45 @@
+#################################
+TextMiningProgram
+#################################
+Autores: Javier Arin A905322, Iñigo Armendia , Marcin Kawka
+
+Atencion!
+La carpeta FunctionFiles tiene en su interior los scripts usados para el programa
+y la carpeta AnalyzedInvoices es una carpeta necesaria para el funcionamiento interno
+del programa. Por favor no modificar ninguna de las dos carpetas.
+
+
+Intrucciones de uso:
+
+	- Para ejecutar el programa es importante que todos los requisitos hayan
+sido instalados antes, para ello se adjunta un archivo llamado requirements.txt
+en el que pip expone todas las dependencias del programa. Para instalarlo, se
+debe activar el entorno de python preferido (en nuestro caso un simple venv pero
+con conda debería funcionar igual) acceder a la carpeta en la que se encuentra
+este mismo archivo y ejecutar el siguiente comando:
+
+python -m pip install -r requirements.txt
+
+Una vez ejecutado, veremos como python instala todas las dependencias necesarias.
+
+Ahora, para ejecutar el programa, situados en esta misma carpeta, ejecutamos
+
+python TextMiningMain.py
+
+y veremos como se abre una interfaz gráfica. En esta interfaz podemos apreciar
+3 secciones. File analysis es la que se encuentra en la parte superior izquierda,
+la vista de archivos analizados es la que se encuentra a la derecha y por ultimo
+la ventana de exportación a excel que se encuentra abajo a la izquierda.
+
+Lo primero que debemos hacer si nunca antes se han analizado archivos con el 
+programa, es en el textbox "choose a file to scrap" añadir un path al archivo que 
+queremos analizar, o alternativamente mucho más cómodo, usar el boton browse y 
+seleccionar el archivo que queremos analizar. Una vez seleccionado pulsamos Analyze.
+
+Una vez analizados, veremos a la derecha un treeview en el que nos indica la
+estructura del archivo analizado. en esta ventana treeview podemos seleccionar
+los archivos que nos interesan de todos los analizados (usando ctrl o shift como
+en windows normal). Con los archivos seleccionados, en la ventana de exportación,
+podemos pulsar browse y seleccionar el archivo en que se guardará el excel analizado.
+Finalmente pulsamos export y tendremoso en el lugar elegido un excel con los datos
+exportados.

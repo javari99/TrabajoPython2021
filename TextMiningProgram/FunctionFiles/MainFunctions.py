@@ -15,7 +15,7 @@ def analyzeJSON(path: str):
     jsonName = os.path.split(path)[1]
     ogFilename = os.path.splitext(jsonName)[0] # To remove the extension
     try:
-        with io.open(path, mode='r', encoding="UTF-8") as fp:
+        with io.open(path, mode='r', encoding="utf-8") as fp:
             data = json.load(fp)
     except:
         #IOError or file not found
@@ -117,6 +117,12 @@ def exportToExcel(input : dict, outFilePath : str):
             worksheet.write(row, FIELDS[key], str(data[key]))
         row +=1
     workbook.close()
+
+
+def loadAnalyzedFile(path:str):
+        with io.open(path, mode='r', encoding="UTF-16") as fp:
+            data = json.load(fp)
+        return data
 
 
 

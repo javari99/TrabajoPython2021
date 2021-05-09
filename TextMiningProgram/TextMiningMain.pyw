@@ -1,6 +1,9 @@
-from tkinter.constants import END
+
+from os import path
+from tkinter.constants import END, PROJECTING
 from FunctionFiles.MainFunctions import *
 import os
+import json
 
 import tkinter as tk
 import tkinter.filedialog
@@ -132,14 +135,17 @@ class TextMiningUI:
             print(directory)
             for file in os.listdir(os.path.join(analizedDir, directory)):
                 self.treeview1.insert(item, tk.END, text=file)
-                print(f"\t{file}")
+                path = os.path.join(analizedDir, directory) + "/"+file
+                #print(f"\n\n{file}:\n\t{loadAnalyzedFile(path)}")
+                self.dataDic[file] = loadAnalyzedFile(path)
     
     def analyzeFile(self):
-        try:
-            analyzeJSON(self.tb_fileDirectory.get())
-            self.updateTreeView()
-        except:
-            print("Error file not found")
+        #try:
+        print(self.tb_fileDirectory.get())
+        analyzeJSON(self.tb_fileDirectory.get())
+        self.updateTreeView()
+        #except:
+            #print("Error file not found")
 
     def loadBrowseButton(self):
         filename = tkinter.filedialog.askopenfilename()
@@ -148,17 +154,21 @@ class TextMiningUI:
         self.tb_fileDirectory.insert(0,filename)
 
     def saveBrowseButton(self):
-        filename = tkinter.filedialog.asksaveasfilename()
+        filename = tkinter.filedialog.asksaveasfilename(defaultextension=".xlsx", initialfile="result")
         self.root.update()
         self.tb_saveDir.delete(0,END)
         self.tb_saveDir.insert(0,filename)
 
     def exportAsExcell(self):
-        pass
-
+        dic = {}
+        for item in self.treeview1.selection():
+            name = self.treeview1.item(item)["text"]
+            if name in self.dataDic:
+                dic[name] = self.dataDic[name]
+        exportToExcel(dic, self.tb_saveDir.get())
 
 if __name__ == '__main__':
-    """
+
     import tkinter as tk
     root = tk.Tk()
     root.title("TextMiner")
@@ -166,8 +176,8 @@ if __name__ == '__main__':
     app = TextMiningUI(root)
     app.updateTreeView()
     app.run()
-    """
-    analyzeJSON("./TrabajoPython2021/dict_wB.json")
+
+
 
 
 
