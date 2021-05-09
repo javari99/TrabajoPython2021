@@ -123,16 +123,18 @@ def getAllpossibleIVAConfigs(IVAOPTIONS : list, allPrices : list, total: float) 
         if np.dot(IVAOPTIONSNP, np.array(combination)) == total:
             possibleIVAConfigs.append(combination)
 
+    if not possibleIVAConfigs:
+        return possibleIVAConfigs
+
     # We add the functionality from the mostlikely directly here
     max = -1
-    for i in possibleIVAConfigs:
-        for el in i:
-            max = el if el > max else max
+    idx = 0
+    for i in range(len(possibleIVAConfigs)):
+        for el in possibleIVAConfigs[i]:
+            (max,idx) = (el,i) if (el > max and el != total) else (max,idx)
 
     # Devolvemos el que tenga el maximo
-    for i in possibleIVAConfigs:
-        if max in i:
-            return i
+    return possibleIVAConfigs[i]
 
 
 def extraerFecha_0(fech):
@@ -278,4 +280,18 @@ def getAllDates(inString : str) -> list:
 
 if __name__ == "__main__":
     print("Debuggin.....")
-    getAllpossibleIVAConfigs([0, 0.1, 0.21], [1, 2, 3, 4], 16)
+    IVAOPTIONS = [0, 0.04, 0.1, 0.105, 0.106, 0.21]
+    pricesList = [
+        1.0,
+        12100.0,
+        9.9,
+        10000.0,
+        0.9,
+        9.0,
+        2100.0,
+        12100.0,
+        786500.0,
+        10000.0,
+        9.9
+    ]
+    getAllpossibleIVAConfigs(IVAOPTIONS, pricesList, 16)

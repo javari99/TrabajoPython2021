@@ -113,7 +113,7 @@ class TextMiningUI:
 
         self.separator1 = ttk.Separator(self.MainFrame)
         self.separator1.configure(orient='vertical')
-        self.separator1.grid(column='1', columnspan='1', row='0', rowspan='2', sticky='ns')
+        self.separator1.grid(column='1', columnspan='1', row='0', rowspan='3', sticky='ns')
 
         self.separator2 = ttk.Separator(self.MainFrame)
         self.separator2.configure(orient='horizontal')
@@ -146,7 +146,7 @@ class TextMiningUI:
         self.canvas.draw()
         self.canvas.get_tk_widget().pack(side=tk.RIGHT, fill=tk.BOTH, expand=1)
         self.frame6.configure(height='200', width='200')
-        self.frame6.grid(column='1', columnspan='4', row='3', sticky='nsew')
+        self.frame6.grid(column='2', columnspan='2', row='3', sticky='nsew')
 
         self.MainFrame.configure(height='720', width='1280')
         self.MainFrame.pack(side='top')
